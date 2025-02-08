@@ -17,19 +17,19 @@ public class ProyectoControlador {
     @GetMapping("/registro")
     public String mostrarFormularioRegistroProyecto(Model model) {
         model.addAttribute("proyecto", new Proyecto());
-        return "proyecto/formulario";
+        return "Formularios/Proyecto";
     }
 
     @PostMapping("/guardar")
     public String guardarProyecto(@ModelAttribute Proyecto proyecto) {
         proyectoServicio.guardarProyecto(proyecto);
-        return "redirect:/proyectos/lista"; // Redirige a la lista después de guardar
+        return "redirect:/Listas/Proyecto"; // Redirige a la lista después de guardar
     }
 
     @GetMapping("/lista")
     public String listarProyectos(Model model) {
         model.addAttribute("proyectos", proyectoServicio.listarProyectos());
-        return "proyecto/lista";
+        return "Listas/Proyecto";
     }
 
     // Métodos para editar y eliminar proyectos
@@ -37,12 +37,12 @@ public class ProyectoControlador {
     public String mostrarFormularioEditarProyecto(@PathVariable Long id, Model model) {
         Proyecto proyecto = proyectoServicio.obtenerProyectoPorId(id);
         model.addAttribute("proyecto", proyecto);
-        return "proyecto/formulario"; // Reutiliza el formulario de registro
+        return "Formularios/Proyecto"; // Reutiliza el formulario de registro
     }
 
     @GetMapping("/eliminar/{id}")
     public String eliminarProyecto(@PathVariable Long id) {
         proyectoServicio.eliminarProyecto(id);
-        return "redirect:/proyectos/lista"; // Redirige a la lista después de eliminar
+        return "redirect:/Listas/Proyecto"; // Redirige a la lista después de eliminar
     }
 }

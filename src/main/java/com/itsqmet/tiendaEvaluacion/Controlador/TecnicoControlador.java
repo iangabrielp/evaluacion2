@@ -17,19 +17,19 @@ public class TecnicoControlador {
     @GetMapping("/registro")
     public String mostrarFormularioRegistroTecnico(Model model) {
         model.addAttribute("tecnico", new Tecnico());
-        return "tecnico/formulario";
+        return "Formularios/Tecnico";
     }
 
     @PostMapping("/guardar")
     public String guardarTecnico(@ModelAttribute Tecnico tecnico) {
         tecnicoServicio.guardarTecnico(tecnico);
-        return "redirect:/tecnicos/lista"; // Redirige a la lista después de guardar
+        return "redirect:/Listas/Tecnico"; // Redirige a la lista después de guardar
     }
 
     @GetMapping("/lista")
     public String listarTecnicos(Model model) {
         model.addAttribute("tecnicos", tecnicoServicio.listarTecnicos());
-        return "tecnico/lista";
+        return "Listas/Tecnico";
     }
 
     // Métodos para editar y eliminar técnicos
@@ -37,12 +37,12 @@ public class TecnicoControlador {
     public String mostrarFormularioEditarTecnico(@PathVariable Long id, Model model) {
         Tecnico tecnico = tecnicoServicio.obtenerTecnicoPorId(id);
         model.addAttribute("tecnico", tecnico);
-        return "tecnico/formulario"; // Reutiliza el formulario de registro
+        return "Formularios/Tecnico"; // Reutiliza el formulario de registro
     }
 
     @GetMapping("/eliminar/{id}")
     public String eliminarTecnico(@PathVariable Long id) {
         tecnicoServicio.eliminarTecnico(id);
-        return "redirect:/tecnicos/lista"; // Redirige a la lista después de eliminar
+        return "redirect:/Listas/Tecnico"; // Redirige a la lista después de eliminar
     }
 }

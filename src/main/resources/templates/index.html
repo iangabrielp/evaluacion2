@@ -2,15 +2,76 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Proyectos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<h1>Bienvenido</h1>
-<a th:href="@{/tecnicos/registro}">Registrar técnico</a><br>
-<a th:href="@{/proyectos/registro}">Registrar proyecto</a><br>
-<a th:href="@{/tareas/registro}">Registrar tarea</a>
-<a th:href="@{/tecnicos/lista}">Listar técnicos</a><br>
-<a th:href="@{/proyectos/lista}">Listar proyectos</a><br>
-<a th:href="@{/tareas/lista}">Listar tareas</a>
+<div class="card">
+  <h2>Gestión de Proyectos</h2>
+  <div class="list-group">
+    <a th:href="@{/tecnicos/registro}" class="list-group-item list-group-item-action">Registrar técnico</a>
+    <a th:href="@{/proyectos/registro}" class="list-group-item list-group-item-action">Registrar proyecto</a>
+    <a th:href="@{/tareas/registro}" class="list-group-item list-group-item-action">Registrar tarea</a>
+    <a th:href="@{/tecnicos/lista}" class="list-group-item list-group-item-action">Listar técnicos</a>
+    <a th:href="@{/proyectos/lista}" class="list-group-item list-group-item-action">Listar proyectos</a>
+    <a th:href="@{/tareas/lista}" class="list-group-item list-group-item-action">Listar tareas</a>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Estilos -->
+<style>
+  body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url('https://images.pexels.com/photos/3801698/pexels-photo-3801698.jpeg?auto=compress&cs=tinysrgb&w=600');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+
+  .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(5px);
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+  }
+
+  h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+  }
+
+  .list-group-item {
+      border-radius: 10px;
+      font-size: 18px;
+      padding: 15px;
+      color: #333;
+      margin-bottom: 10px;
+      text-align: center;
+      background-color: #f8f9fa;
+      transition: background-color 0.3s ease;
+  }
+
+  .list-group-item:hover {
+      background-color: #007bff;
+      color: #fff;
+  }
+
+</style>
 </body>
 </html>

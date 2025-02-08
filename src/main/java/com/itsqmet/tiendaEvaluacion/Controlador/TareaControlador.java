@@ -27,19 +27,19 @@ public class TareaControlador {
         model.addAttribute("tarea", new Tarea());
         model.addAttribute("tecnicos", tecnicoServicio.listarTecnicos());
         model.addAttribute("proyectos", proyectoServicio.listarProyectos());
-        return "tarea/formulario";
+        return "Formularios/Tarea";
     }
 
     @PostMapping("/guardar")
     public String guardarTarea(@ModelAttribute Tarea tarea) {
         tareaServicio.guardarTarea(tarea);
-        return "redirect:/tareas/lista"; // Redirige a la lista después de guardar
+        return "redirect:Listas/Tarea"; // Redirige a la lista después de guardar
     }
 
     @GetMapping("/lista")
     public String listarTareas(Model model) {
         model.addAttribute("tareas", tareaServicio.listarTareas());
-        return "tarea/lista";
+        return "Listas/Tarea";
     }
 
     // Métodos para editar y eliminar tareas
@@ -49,12 +49,12 @@ public class TareaControlador {
         model.addAttribute("tarea", tarea);
         model.addAttribute("tecnicos", tecnicoServicio.listarTecnicos());
         model.addAttribute("proyectos", proyectoServicio.listarProyectos());
-        return "tarea/formulario"; // Reutiliza el formulario de registro
+        return "Formularios/Tarea"; // Reutiliza el formulario de registro
     }
 
     @GetMapping("/eliminar/{id}")
     public String eliminarTarea(@PathVariable Long id) {
         tareaServicio.eliminarTarea(id);
-        return "redirect:/tareas/lista"; // Redirige a la lista después de eliminar
+        return "redirect:/Listas/Tarea"; // Redirige a la lista después de eliminar
     }
 }
